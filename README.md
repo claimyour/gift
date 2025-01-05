@@ -1,0 +1,1 @@
+This landing page is designed to capture users' attention and encourage them to claim free gift card rewards by completing a short survey. The page is visually appealing, user-friendly, and optimized for engagement. It features countdown timers, social proof through comments, and an FAQ section to address common concerns.

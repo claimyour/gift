@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claim Your Gift Card Reward Now!</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #F4F4F4;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        header {
+            padding: 20px 0;
+            text-align: center;
+            background-color: #FFFFFF;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: bold;
+            letter-spacing: 1px;
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            font-weight: 500;
+            color: #666;
+        }
+
+        .content {
+            padding: 40px 20px;
+        }
+
+        .content h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .content p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #444;
+        }
+
+        .urgency {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        /* Button Colors for Different Brands */
+        .dunkin-button {
+            background-color: #D36B00; /* Dunkin' darker shade */
+        }
+
+        .mcdonalds-button {
+            background-color: #FF9900; /* McDonald's deeper yellow */
+        }
+
+        .burgerking-button {
+            background-color: #C60C0C; /* Burger King's darker red */
+        }
+
+        .cta-button:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+
+        /* Social Media Style Comments */
+        .comments {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .comments h3 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .comment {
+            background-color: #ffffff;
+            padding: 20px;
+            margin: 10px auto;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            display: flex;
+            align-items: center;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .comment:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .comment img {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .comment .comment-text {
+            flex-grow: 1;
+        }
+
+        .comment .user-info {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .comment .timestamp {
+            font-size: 0.9em;
+            color: #888;
+        }
+
+        .comment p {
+            font-size: 1.1em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        /* Countdown Timer Styling */
+        #countdown {
+            font-size: 2em;
+            font-weight: bold;
+            color: #34495e; /* Dark blue for serious look */
+            margin: 20px 0;
+        }
+
+        .faq {
+            background-color: #FFF;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 40px;
+            text-align: left;
+            color: #333;
+            border-radius: 8px;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        .faq h3 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .faq-item {
+            background-color: #f9f9f9;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-item:hover {
+            background-color: #f1f1f1;
+        }
+
+        .faq-item .question {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #444;
+        }
+
+        .faq-item .answer {
+            display: none;
+            font-size: 1em;
+            margin-top: 10px;
+            color: #666;
+        }
+
+        .faq-item.active .answer {
+            display: block;
+        }
+
+        .faq-item .question::after {
+            content: " ▼";
+            font-size: 1.2em;
+            color: #888;
+        }
+
+        .faq-item.active .question::after {
+            content: " ▲";
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <h1>Grab Your Free Gift Cards Now!</h1>
+        <p>Claim your <span style="color: green; font-weight: bold;">$500</span> Dunkin Donuts, McDonald's or Burger King gift card. Fast, easy and most important <span style="color: green; font-weight: bold;">it's for FREE</span>!</p>
+    </header>
+    <div class="content">
+        <h2>Don’t Miss Your Chance</h2>
+        <p>Complete a quick survey to claim your gift card. It’s fast, secure, and absolutely free!</p>
+        <div class="urgency">Hurry! Offer expires in:</div>
+        <div id="countdown">37:54</div>
+
+        <!-- Buttons with Logos -->
+        <a href="YOUR_LINK_HERE_1" class="cta-button dunkin-button" id="button1">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Dunkin%27_logo_2018.svg" alt="Dunkin' Logo">
+            Claim Dunkin' Gift Card
+        </a>
+        <a href="YOUR_LINK_HERE_2" class="cta-button mcdonalds-button" id="button2">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/McDonald%27s_Logo_2018.svg" alt="McDonald's Logo">
+            Claim McDonald's Gift Card
+        </a>
+        <a href="YOUR_LINK_HERE_3" class="cta-button burgerking-button" id="button3">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Burger_King_2020_logo.svg" alt="Burger King Logo">
+            Claim Burger King Gift Card
+        </a>
+    </div>
+
+    <!-- What Others Are Saying (Social Media Style Comments) -->
+    <div class="comments">
+        <h3>What Others Are Saying</h3>
+        <div class="comment">
+            <img src="https://randomuser.me/api/portraits/women/48.jpg" alt="Jane D">
+            <div class="comment-text">
+                <div class="user-info">Jane D.</div>
+                <div class="timestamp">5 minutes ago</div>
+                <p>"I just received my Dunkin Donuts gift card! This was super easy and fast. Highly recommend!"</p>
+            </div>
+        </div>
+        <div class="comment">
+            <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="John S">
+            <div class="comment-text">
+                <div class="user-info">John S.</div>
+                <div class="timestamp">10 minutes ago</div>
+                <p>"The McDonald's gift card was delivered in just a few hours! Amazing experience!"</p>
+            </div>
+        </div>
+        <div class="comment">
+            <img src="https://randomuser.me/api/portraits/women/17.jpg" alt="Sara P">
+            <div class="comment-text">
+                <div class="user-info">Sara P.</div>
+                <div class="timestamp">20 minutes ago</div>
+                <p>"I thought it was too good to be true, but I got my Burger King gift card today. Thank you!"</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq">
+        <h3>Frequently Asked Questions</h3>
+
+        <!-- FAQ Item 1 -->
+        <div class="faq-item">
+            <div class="question">How do I claim my reward?</div>
+            <div class="answer">Just complete the quick survey and provide your email. It's that simple!</div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="faq-item">
+            <div class="question">Is this offer available everywhere?</div>
+            <div class="answer">Yes! This offer is valid for anyone in the U.S.</div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="faq-item">
+            <div class="question">How long does it take to receive my reward?</div>
+            <div class="answer">You will receive your gift card within 24 hours after completing the survey!</div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="faq-item">
+            <div class="question">Can I claim multiple rewards?</div>
+            <div class="answer">Each person is eligible for only one reward.</div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Rewards Program. All rights reserved. Terms and conditions apply.</p>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        let countdownDate = new Date().getTime() + 37 * 60 * 1000 + 54 * 1000; // Set countdown to 37:54
+
+        function updateCountdown() {
+            let now = new Date().getTime();
+            let distance = countdownDate - now;
+
+            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+
+            if (distance < 0) {
+                clearInterval(interval);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+            }
+        }
+
+        let interval = setInterval(updateCountdown, 1000);
+
+        // FAQ Toggle Function
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
